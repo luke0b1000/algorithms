@@ -21,8 +21,8 @@ var sieveofE = function(upperBound){
   }
 
   for (var i = 2; i<=Math.sqrt(upperBound); i++){   //start the loooping process
-    if (table[i] == true) {   //if A[i] is true, it is still prime
-      for (var j = i*2; j <=upperBound; j= j +i){   // starts off with the prime * 2 (prime + prime), then each incrementation is a multiple of i so j [j=i+i] is the first multiple, so the next one is j=j+i which expanded j=i+i+i, so each one will add another i
+    if (table[i] === true) {   //if A[i] is true, it is still prime
+      for (var j = i+i; j <=upperBound; j= j +i){   // starts off with the prime * 2 (prime + prime), then each incrementation is a multiple of i so j [j=i+i] is the first multiple, so the next one is j=j+i which expanded j=i+i+i, so each one will add another i
         table[j] = false; // set it equal to false since its a multiple
       }
     }
@@ -37,4 +37,4 @@ var sieveofE = function(upperBound){
   return primeTable;
 
 };
-console.log(sieveofE(100));
+console.log(sieveofE(100)); //["2", "3", "5", "7", "11", "13", "17", "19", "23", "29", "31", "37", "41", "43", "47", "53", "59", "61", "67", "71", "73", "79", "83", "89", "97"]
